@@ -40,7 +40,7 @@ Editar
 ## 🌐 Link do Site Publicado
 
 🔗 [Acesse aqui](https://<seu-usuario>.github.io/mundo-tartarugas)  
-> Substitua `<seu-usuario>` pelo seu nome de usuário do GitHub.
+https://caue-guedes.github.io/PROJETO-SITE-FORMULARIO/
 
 ## 📅 Entrega
 
