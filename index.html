@@ -94,7 +94,11 @@
         <h2>Fale Conosco</h2>
         <p>Tem dúvidas ou quer colaborar com nosso projeto? Envie sua mensagem!</p>
         
-        <form id="form-contato" novalidate>
+        <form id="form-contato" action="https://formsubmit.co/caue.guedes@escola.pr.gov.br" method="POST" novalidate>
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
+          <input type="hidden" name="_template" value="table">
+          
           <div class="form-group">
             <label for="nome">Nome Completo:</label>
             <input type="text" id="nome" name="nome" required minlength="3" maxlength="100">
