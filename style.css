@@ -77,6 +77,7 @@ h1 {
   color: var(--text-light);
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .nav-menu ul {
@@ -247,6 +248,7 @@ h2::after {
 }
 
 .species-img {
+  position: relative;
   height: 200px;
   overflow: hidden;
 }
@@ -260,6 +262,18 @@ h2::after {
 
 .species-card:hover .species-img img {
   transform: scale(1.05);
+}
+
+.image-credit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
+  text-align: center;
 }
 
 .species-info {
@@ -351,6 +365,7 @@ form {
 
 .form-group {
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 label {
@@ -425,6 +440,9 @@ input[type="checkbox"] {
   transition: var(--transition);
   width: 100%;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .submit-button:hover,
@@ -446,9 +464,27 @@ input[type="checkbox"] {
   color: var(--success-color);
 }
 
-.error-message {
+.error-message-global {
   background-color: #ffebee;
   color: var(--error-color);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Footer */
