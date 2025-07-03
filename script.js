@@ -107,6 +107,7 @@ function setupFormValidation() {
   const retorno = document.getElementById('retorno-formulario');
   
   form.addEventListener('submit', function(e) {
+    // Impedir envio padrão para nossa validação
     e.preventDefault();
     
     // Resetar mensagens de erro
@@ -119,7 +120,6 @@ function setupFormValidation() {
     const email = document.getElementById('email');
     const assunto = document.getElementById('assunto');
     const mensagem = document.getElementById('mensagem');
-    const newsletter = document.getElementById('newsletter');
     
     let isValid = true;
     
@@ -157,14 +157,18 @@ function setupFormValidation() {
     }
     
     if (isValid) {
-      // Enviar formulário
-      sendEmail(
-        nome.value.trim(),
-        email.value.trim(),
-        assunto.value,
-        mensagem.value.trim(),
-        newsletter.checked
-      );
+      // Mostrar loading
+      const submitBtn = form.querySelector('.submit-button');
+      submitBtn.innerHTML = '<span class="loading-spinner"></span> Enviando...';
+      submitBtn.disabled = true;
+      
+      // Enviar formulário via FormSubmit
+      form.submit();
+      
+      // Se quiser feedback antes do redirecionamento
+      retorno.textContent = 'Enviando mensagem para caue.guedes@escola.pr.gov.br...';
+      retorno.className = 'success-message';
+      retorno.setAttribute('role', 'alert');
     } else {
       retorno.textContent = 'Por favor, corrija os erros no formulário.';
       retorno.className = 'error-message';
@@ -193,43 +197,4 @@ function setupCharacterCounter() {
       charCount.style.color = 'inherit';
     }
   });
-}
-
-function sendEmail(nome, email, assunto, mensagem, newsletter) {
-  const retorno = document.getElementById('retorno-formulario');
-  
-  // Simular envio para o e-mail caue.guedes@escola.pr.gov.br
-  // Em produção, você precisaria de um backend para isso
-  // Aqui está uma simulação do que aconteceria
-  
-  const formData = {
-    nome: nome,
-    email: email,
-    assunto: assunto,
-    mensagem: mensagem,
-    newsletter: newsletter,
-    destinatario: 'caue.guedes@escola.pr.gov.br'
-  };
-  
-  console.log('Dados do formulário que seriam enviados:', formData);
-  
-  // Simular atraso de rede
-  setTimeout(() => {
-    retorno.textContent = 'Mensagem enviada com sucesso para caue.guedes@escola.pr.gov.br! Obrigado pelo seu contato.';
-    retorno.className = 'success-message';
-    retorno.setAttribute('role', 'alert');
-    
-    // Limpar formulário
-    document.getElementById('form-contato').reset();
-    document.getElementById('char-count').textContent = '0';
-    
-    // Focar no retorno para acessibilidade
-    retorno.focus();
-    
-    // Esconder mensagem após 5 segundos
-    setTimeout(() => {
-      retorno.textContent = '';
-      retorno.className = '';
-    }, 5000);
-  }, 1000);
 }
