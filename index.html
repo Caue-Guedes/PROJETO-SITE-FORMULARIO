@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore o fascinante mundo das tartarugas - criaturas antigas e sábias que habitam nosso planeta há milhões de anos.">
+  <title>Mundo das Tartarugas | Conservação e Informação</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Seaweed+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+  <header>
+    <div class="header-container">
+      <h1>Mundo das Tartarugas</h1>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#home" class="nav-link">Início</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#especies" class="nav-link">Espécies</a></li>
+          <li><a href="#conservacao" class="nav-link">Conservação</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h2>Protegendo as Tartarugas por Gerações</h2>
+        <p>Descubra a beleza e importância desses seres incríveis que habitam nosso planeta há mais de 200 milhões de anos.</p>
+        <a href="#conservacao" class="cta-button">Saiba Como Ajudar</a>
+      </div>
+    </section>
+
+    <section id="sobre" class="info-section">
+      <div class="section-container">
+        <h2>Sobre as Tartarugas</h2>
+        <div class="about-grid">
+          <article>
+            <i class="fas fa-clock"></i>
+            <h3>Longevidade</h3>
+            <p>Algumas espécies podem viver mais de 100 anos, sendo verdadeiros testemunhos da história natural.</p>
+          </article>
+          <article>
+            <i class="fas fa-globe-americas"></i>
+            <h3>Distribuição</h3>
+            <p>Encontradas em todos os continentes exceto na Antártida, adaptando-se aos mais diversos habitats.</p>
+          </article>
+          <article>
+            <i class="fas fa-shield-alt"></i>
+            <h3>Proteção</h3>
+            <p>Seus cascos são estruturas ósseas modificadas que oferecem proteção contra predadores.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="especies" class="species-section">
+      <div class="section-container">
+        <h2>Espécies em Destaque</h2>
+        <div class="species-gallery">
+          <!-- Conteúdo dinâmico será inserido via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section id="conservacao" class="conservation-section">
+      <div class="section-container">
+        <h2>Conservação</h2>
+        <p>Mais de 60% das espécies de tartarugas estão ameaçadas devido à perda de habitat, caça ilegal e poluição.</p>
+        <div class="conservation-tips">
+          <h3>Como Você Pode Ajudar:</h3>
+          <ul>
+            <li>Reduza o uso de plásticos descartáveis</li>
+            <li>Participe de programas de limpeza de praias</li>
+            <li>Apoie organizações de conservação</li>
+            <li>Eduque outros sobre a importância das tartarugas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact-section">
+      <div class="section-container">
+        <h2>Fale Conosco</h2>
+        <p>Tem dúvidas ou quer colaborar com nosso projeto? Envie sua mensagem!</p>
+        
+        <form id="form-contato" novalidate>
+          <div class="form-group">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required minlength="3" maxlength="100">
+            <span class="error-message" id="nome-error"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" id="email-error"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="assunto">Assunto:</label>
+            <select id="assunto" name="assunto" required>
+              <option value="" disabled selected>Selecione um assunto</option>
+              <option value="duvida">Dúvida</option>
+              <option value="colaboracao">Colaboração</option>
+              <option value="denuncia">Denúncia</option>
+              <option value="outro">Outro</option>
+            </select>
+            <span class="error-message" id="assunto-error"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required minlength="10" maxlength="500"></textarea>
+            <span class="error-message" id="mensagem-error"></span>
+            <div class="char-counter"><span id="char-count">0</span>/500</div>
+          </div>
+          
+          <div class="form-group">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Desejo receber a newsletter mensal</label>
+          </div>
+          
+          <button type="submit" class="submit-button">Enviar Mensagem</button>
+          
+          <div id="retorno-formulario" role="alert"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Mundo das Tartarugas</h3>
+        <p>Conservando para o futuro</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#especies">Espécies</a></li>
+          <li><a href="#conservacao">Conservação</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-social">
+        <h4>Siga-nos</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Mundo das Tartarugas. Todos os direitos reservados.</p>
+      <p><a href="/politica-de-privacidade">Política de Privacidade</a> | <a href="/termos-de-uso">Termos de Uso</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
