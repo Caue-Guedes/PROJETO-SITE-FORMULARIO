@@ -34,33 +34,38 @@ function loadTurtleSpecies() {
   const species = [
     {
       name: "Tartaruga-de-pente",
-      image: "https://images.unsplash.com/photo-1586015555751-63bb77f4322a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://www.tamar.org.br/fotos/F02_035_1.jpg",
       description: "Conhecida por seu belo casco usado na fabricação de jóias.",
-      status: "endangered"
+      status: "endangered",
+      credit: "Foto: Projeto TAMAR"
     },
     {
       name: "Tartaruga-verde",
-      image: "https://images.unsplash.com/photo-1558640476-437a2b9438a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStvKgDAdr18IcYFCMX4rHNiX3rHWMOX613Q&s",
       description: "A maior das tartarugas de casco duro e única herbívora na fase adulta.",
-      status: "endangered"
+      status: "endangered",
+      credit: "Foto: Google Images"
     },
     {
       name: "Tartaruga-gigante",
-      image: "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://upload.wikimedia.org/wikipedia/commons/8/81/Geochelone_gigantea-cornelle.jpg",
       description: "Encontradas nas Ilhas Galápagos, podem viver mais de 100 anos.",
-      status: "vulnerable"
+      status: "vulnerable",
+      credit: "Foto: Wikimedia Commons"
     },
     {
       name: "Tartaruga-oliva",
-      image: "https://images.unsplash.com/photo-1560279969-9ff8a9f14a4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://lh6.googleusercontent.com/proxy/RLLPof8njcjuIl1FXuQP1ESX3lkB1ohw3WXd8h1Z9TriJgGqBKEgKnDy01HW3Y3Gjke_Rjb66LYj_7VwWq6MOp1UtXf3GG6PJONANUY",
       description: "A menor das tartarugas marinhas, com cerca de 60-70 cm de comprimento.",
-      status: "vulnerable"
+      status: "vulnerable",
+      credit: "Foto: Google Images"
     },
     {
       name: "Tartaruga-de-couro",
-      image: "https://images.unsplash.com/photo-1560279969-9ff8a9f14a4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://faunanews.com.br/wp-content/uploads/2023/05/Imagem-3.jpg",
       description: "A maior de todas as tartarugas marinhas, podendo atingir 2 metros de comprimento.",
-      status: "vulnerable"
+      status: "vulnerable",
+      credit: "Foto: Fauna News"
     }
   ];
   
@@ -73,6 +78,7 @@ function loadTurtleSpecies() {
     card.innerHTML = `
       <div class="species-img">
         <img src="${turtle.image}" alt="${turtle.name}" loading="lazy">
+        <div class="image-credit">${turtle.credit}</div>
       </div>
       <div class="species-info">
         <h3>${turtle.name}</h3>
@@ -113,6 +119,7 @@ function setupFormValidation() {
     const email = document.getElementById('email');
     const assunto = document.getElementById('assunto');
     const mensagem = document.getElementById('mensagem');
+    const newsletter = document.getElementById('newsletter');
     
     let isValid = true;
     
@@ -150,23 +157,14 @@ function setupFormValidation() {
     }
     
     if (isValid) {
-      // Simular envio do formulário
-      retorno.textContent = 'Mensagem enviada com sucesso! Obrigado pelo seu contato.';
-      retorno.className = 'success-message';
-      retorno.setAttribute('role', 'alert');
-      
-      // Limpar formulário
-      form.reset();
-      document.getElementById('char-count').textContent = '0';
-      
-      // Focar no retorno para acessibilidade
-      retorno.focus();
-      
-      // Simular envio assíncrono
-      setTimeout(() => {
-        retorno.textContent = '';
-        retorno.className = '';
-      }, 5000);
+      // Enviar formulário
+      sendEmail(
+        nome.value.trim(),
+        email.value.trim(),
+        assunto.value,
+        mensagem.value.trim(),
+        newsletter.checked
+      );
     } else {
       retorno.textContent = 'Por favor, corrija os erros no formulário.';
       retorno.className = 'error-message';
@@ -195,4 +193,43 @@ function setupCharacterCounter() {
       charCount.style.color = 'inherit';
     }
   });
+}
+
+function sendEmail(nome, email, assunto, mensagem, newsletter) {
+  const retorno = document.getElementById('retorno-formulario');
+  
+  // Simular envio para o e-mail caue.guedes@escola.pr.gov.br
+  // Em produção, você precisaria de um backend para isso
+  // Aqui está uma simulação do que aconteceria
+  
+  const formData = {
+    nome: nome,
+    email: email,
+    assunto: assunto,
+    mensagem: mensagem,
+    newsletter: newsletter,
+    destinatario: 'caue.guedes@escola.pr.gov.br'
+  };
+  
+  console.log('Dados do formulário que seriam enviados:', formData);
+  
+  // Simular atraso de rede
+  setTimeout(() => {
+    retorno.textContent = 'Mensagem enviada com sucesso para caue.guedes@escola.pr.gov.br! Obrigado pelo seu contato.';
+    retorno.className = 'success-message';
+    retorno.setAttribute('role', 'alert');
+    
+    // Limpar formulário
+    document.getElementById('form-contato').reset();
+    document.getElementById('char-count').textContent = '0';
+    
+    // Focar no retorno para acessibilidade
+    retorno.focus();
+    
+    // Esconder mensagem após 5 segundos
+    setTimeout(() => {
+      retorno.textContent = '';
+      retorno.className = '';
+    }, 5000);
+  }, 1000);
 }
