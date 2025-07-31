@@ -48,13 +48,13 @@ https://caue-guedes.github.io/PROJETO-SITE-FORMULARIO/
 - ✅ Código-fonte organizado no repositório
 - ✅ Link enviado no Google Classroom
 
-## 👨‍🏫 Professor(a)
+## 👨‍🏫 Professor
 
-- Nome do(a) professor(a): _[Preencher aqui]_
+- Nome do(a) professor(a): _Thiago_Fabri_
 
-## 🧑‍🎓 Aluno(a)
+## 🧑‍🎓 Aluno
 
-- Nome do aluno: _[Seu nome aqui]_
+- Nome do aluno: _Cauê_Guedes_
 
 ---
 
