@@ -186,7 +186,7 @@ h2::after {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://marsemfim.com.br/wp-content/uploads/2016/09/tartaruga-gigantes-Diego.jpg') no-repeat center center/cover;
   height: 60vh;
   display: flex;
   align-items: center;
