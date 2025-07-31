@@ -22,12 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Carregar espécies de tartarugas
   loadTurtleSpecies();
-  
-  // Configurar validação do formulário
-  setupFormValidation();
-  
-  // Contador de caracteres para textarea
-  setupCharacterCounter();
 });
 
 function loadTurtleSpecies() {
@@ -100,101 +94,4 @@ function getStatusText(status) {
     'least-concern': 'Pouco preocupante'
   };
   return statusMap[status] || 'Desconhecido';
-}
-
-function setupFormValidation() {
-  const form = document.getElementById('form-contato');
-  const retorno = document.getElementById('retorno-formulario');
-  
-  form.addEventListener('submit', function(e) {
-    // Impedir envio padrão para nossa validação
-    e.preventDefault();
-    
-    // Resetar mensagens de erro
-    document.querySelectorAll('.error-message').forEach(el => {
-      el.textContent = '';
-    });
-    
-    // Validar campos
-    const nome = document.getElementById('nome');
-    const email = document.getElementById('email');
-    const assunto = document.getElementById('assunto');
-    const mensagem = document.getElementById('mensagem');
-    
-    let isValid = true;
-    
-    // Validar nome
-    if (!nome.value.trim()) {
-      document.getElementById('nome-error').textContent = 'Por favor, insira seu nome';
-      isValid = false;
-    } else if (nome.value.trim().length < 3) {
-      document.getElementById('nome-error').textContent = 'O nome deve ter pelo menos 3 caracteres';
-      isValid = false;
-    }
-    
-    // Validar email
-    if (!email.value.trim()) {
-      document.getElementById('email-error').textContent = 'Por favor, insira seu e-mail';
-      isValid = false;
-    } else if (!isValidEmail(email.value.trim())) {
-      document.getElementById('email-error').textContent = 'Por favor, insira um e-mail válido';
-      isValid = false;
-    }
-    
-    // Validar assunto
-    if (!assunto.value) {
-      document.getElementById('assunto-error').textContent = 'Por favor, selecione um assunto';
-      isValid = false;
-    }
-    
-    // Validar mensagem
-    if (!mensagem.value.trim()) {
-      document.getElementById('mensagem-error').textContent = 'Por favor, insira sua mensagem';
-      isValid = false;
-    } else if (mensagem.value.trim().length < 10) {
-      document.getElementById('mensagem-error').textContent = 'A mensagem deve ter pelo menos 10 caracteres';
-      isValid = false;
-    }
-    
-    if (isValid) {
-      // Mostrar loading
-      const submitBtn = form.querySelector('.submit-button');
-      submitBtn.innerHTML = '<span class="loading-spinner"></span> Enviando...';
-      submitBtn.disabled = true;
-      
-      // Enviar formulário via FormSubmit
-      form.submit();
-      
-      // Se quiser feedback antes do redirecionamento
-      retorno.textContent = 'Enviando mensagem para caue.guedes@escola.pr.gov.br...';
-      retorno.className = 'success-message';
-      retorno.setAttribute('role', 'alert');
-    } else {
-      retorno.textContent = 'Por favor, corrija os erros no formulário.';
-      retorno.className = 'error-message';
-      retorno.setAttribute('role', 'alert');
-      retorno.focus();
-    }
-  });
-}
-
-function isValidEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
-
-function setupCharacterCounter() {
-  const mensagem = document.getElementById('mensagem');
-  const charCount = document.getElementById('char-count');
-  
-  mensagem.addEventListener('input', function() {
-    const count = this.value.length;
-    charCount.textContent = count;
-    
-    if (count > 500) {
-      charCount.style.color = 'var(--error-color)';
-    } else {
-      charCount.style.color = 'inherit';
-    }
-  });
 }
