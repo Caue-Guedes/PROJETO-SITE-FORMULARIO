@@ -162,7 +162,21 @@ h1 {
   width: 100%;
 }
 
+/* Google Form Container */
+.google-form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
 
+.google-form-container iframe {
+  width: 100%;
+  min-height: 800px;
+  border: none;
+}
 
 main {
   max-width: var(--max-width);
